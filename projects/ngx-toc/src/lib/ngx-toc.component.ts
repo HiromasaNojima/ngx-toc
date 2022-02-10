@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-toc',
+  selector: 'ngx-toc',
   template: `
     <p>
       ngx-toc works!
