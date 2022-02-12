@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgxTocService } from './ngx-toc.service';
+import { NgxTocService } from './toc.service';
 
-describe('NgxTocService', () => {
+describe('TocService', () => {
   let service: NgxTocService;
 
   beforeEach(() => {

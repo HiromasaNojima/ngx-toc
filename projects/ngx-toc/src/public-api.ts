@@ -2,6 +2,6 @@
  * Public API Surface of ngx-toc
  */
 
-export * from './lib/ngx-toc.service';
-export * from './lib/ngx-toc.component';
-export * from './lib/ngx-toc.module';
+export * from './lib/toc.service';
+export * from './lib/toc.component';
+export * from './lib/toc.module';

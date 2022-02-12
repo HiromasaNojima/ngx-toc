@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class NgxTocService {
+export class TocService {
 
   constructor() { }
+
+  createToc() {
+  }
 }

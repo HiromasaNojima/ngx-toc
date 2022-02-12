@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { NgxTocComponent } from './ngx-toc.component';
+import { TocComponent } from './toc.component';
 
 
 
 @NgModule({
   declarations: [
-    NgxTocComponent
+    TocComponent
   ],
   imports: [
   ],
   exports: [
-    NgxTocComponent
+    TocComponent
   ]
 })
 export class NgxTocModule { }
