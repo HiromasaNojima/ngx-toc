@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgxTocService } from './toc.service';
+import { TocService } from './toc.service';
 
 describe('TocService', () => {
-  let service: NgxTocService;
+  let service: TocService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgxTocService);
+    service = TestBed.inject(TocService);
   });
 
   it('should be created', () => {

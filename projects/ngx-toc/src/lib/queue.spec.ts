@@ -6,13 +6,22 @@ describe('Queue', () => {
     queue = new Queue<number>();
   });
 
+  it('should be empty', () => {
+    expect(true).toEqual(queue.empty());
+  })
+
   it('length should be 0', ()=> {
      expect(0).toEqual(queue.length());
   });
 
-  it('length should be 1 after push', ()=> {
+  it('length should be 1 after push(1)', ()=> {
     queue.push(1);
     expect(1).toEqual(queue.length());
+  });
+
+  it('length should not be empty after push(1)', ()=> {
+    queue.push(1);
+    expect(false).toEqual(queue.empty());
   });
 
   it('should be 1 after push(1), pop()', () => {
