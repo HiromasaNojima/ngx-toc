@@ -1,6 +1,7 @@
+export const errorNoElements = '[ngx-toc] Queue.pop() is called when it has no elements.'
 export class Queue<T> {
   private data: T[] = [];
-  empty(): boolean {return (this.data.length == 0);}
+  empty(): boolean { return (this.data.length === 0); }
   length(): number { return this.data.length; }
   push(item: T) { this.data.push(item); }
   pop(): T { 
@@ -8,7 +9,7 @@ export class Queue<T> {
     if(t) {
       return t;
     } else {
-      throw new Error("No element.")
+      throw new Error(errorNoElements);
     }
   }
 }
