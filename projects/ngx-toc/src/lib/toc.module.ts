@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { TocComponent } from './toc.component';
 
-
-
 @NgModule({
   declarations: [
     TocComponent

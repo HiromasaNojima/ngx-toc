@@ -1,67 +1,36 @@
-import { Injectable } from '@angular/core';
-import { Queue } from './queue';
-import { Li, Toc, Ul } from './toc-composite';
+import {  Injectable, Renderer2 } from '@angular/core';
+import { TocCompositeFactory } from './toc-composite';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TocService {
 
+  private headingTags: ReadonlySet<string> = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
+
   constructor() { }
 
-  createToc(targetId: string, terminalHeading: string): HTMLElement{
+  createToc(targetId: string, targetHeadings: string[], path: string, renderer: Renderer2): HTMLElement{
+    this.validateTargetHeadings(targetHeadings);
     let target = document.getElementById(targetId);
     if (!target) {
-      throw new Error('failed to get element. target_element_id = ' + targetId);
+      throw new Error(`[ngx-toc] failed to get element by id. targetId = ${targetId}`);
     }
 
-    // あとでここの取得ちゃんとやる、エラーハンドリング
-    let headings = target.querySelectorAll<HTMLElement>("h1, h2, h3");
-    if (!headings) {
-      throw new Error('there is no heading elements. terminal_heading = ');
+    let headings = target.querySelectorAll<HTMLElement>(targetHeadings.toString());
+    if (!headings || headings.length === 0) {
+      throw new Error(`[ngx-toc] there are no heading elements. targetId = ${targetId}`);
     }
 
-    let queue = new Queue<HTMLElement>();
-    headings.forEach(e => { queue.push(e); } );
-
-    let pre = queue.pop();
-    let ul = this.createNode(pre, null);
-    let item = new Li(pre.id, pre.innerHTML);
-    ul.add(item);
-    return this.createTocComposite(queue, pre, ul).toHtml();
+    return new TocCompositeFactory(headings, path).createToc().toHtml(renderer);
   }
 
-  private createTocComposite(queue: Queue<HTMLElement>, preItem: HTMLElement, node: Ul): Toc {
-    if (queue.empty()) {
-      return node;
-    }
-
-    let item = queue.pop();
-    if (item.tagName === preItem.tagName) {
-      node.add(this.createLeaf(item));
-      return this.createTocComposite(queue, item, node);
-    } else if (preItem.tagName < item.tagName) {
-      let childNode = this.createNode(item, node);
-      node.add(childNode);
-      childNode.add(this.createLeaf(item));
-      return this.createTocComposite(queue, item, childNode);
-    } else {
-      // search parent item should be added to.
-      let parent = node.getParent();
-      while (item.tagName < parent.getDepth()) {
-        parent = parent.getParent();
+  private validateTargetHeadings(targetHeadings: string[]) {
+    targetHeadings.forEach(e => {
+      if(!this.headingTags.has(e)) {
+        throw new Error(`[ngx-toc] targetHeadings has not-heading tag. targetHeadings = ${targetHeadings}, invalid element = ${e}. acceptable tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']`);
       }
-  
-      parent.add(this.createLeaf(item));
-      return this.createTocComposite(queue, item, parent);
-    }
+    });
   }
 
-  private createNode(item: HTMLElement, node: Ul | null): Ul {
-    return new Ul(item.tagName, node);
-  }
-
-  private createLeaf(item: HTMLElement): Toc {
-    return new Li(item.id, item.innerHTML);
-  }
 }
