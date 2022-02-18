@@ -7,7 +7,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-toc-project": {
+    "demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -21,7 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-toc-project",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-toc-project:build:production"
+              "browserTarget": "demo:build:production"
             },
             "development": {
-              "browserTarget": "ngx-toc-project:build:development"
+              "browserTarget": "demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-toc-project:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -155,5 +155,5 @@
       }
     }
   },
-  "defaultProject": "ngx-toc-project"
+  "defaultProject": "demo"
 }
