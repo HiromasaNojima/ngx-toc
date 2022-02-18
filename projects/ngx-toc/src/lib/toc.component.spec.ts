@@ -30,10 +30,8 @@ describe('TocComponent(default value)', () => {
   let toc = '<ul><li><a href="/#h1-1">h1-1</a></li></ul>';
 
   it(`should be ${toc}`, () => {
-    fixture.whenStable().then(() => {
-      let created = fixture.nativeElement.querySelector('ngx-toc');
-      expect(created.innerHTML).toEqual(toc);
-    });
+    let created = fixture.nativeElement.querySelector('ngx-toc');
+    expect(created.innerHTML).toEqual(toc);
   });
 });
 
