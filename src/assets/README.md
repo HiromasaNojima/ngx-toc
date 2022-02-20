@@ -65,8 +65,8 @@ You can find example at [Github]() and [Demo]().
 
 ## Use with ngx-markdown
 
-[ngx-markdown](https://github.com/jfcere/ngx-markdown) is library to use markdown in Angular.
-ngx-toc can collaborate with this.
+[ngx-markdown](https://github.com/jfcere/ngx-markdown) is library to use markdown in Angular.<br>
+`ngx-toc` can collaborate with this.
 
 - html
 
