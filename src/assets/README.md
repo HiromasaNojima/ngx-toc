@@ -35,7 +35,6 @@ import { Router } from '@angular/router';
 import { TocService } from 'ngx-toc';
 
 @Component({
-  selector: 'app-demo2',
   template: `
   <div #toc id="toc"></div>
   <div id="toc-target">
@@ -61,7 +60,7 @@ export class Demo2Component implements AfterViewInit {
 }
 ```
 
-You can find example at [Github]() and [Demo]().
+You can find example at [Github](https://github.com/HiromasaNojima/ngx-toc/tree/main/src/app/demo1) and [Demo](https://sleepy-knuth-cedceb.netlify.app/demo1).
 
 ## Use with ngx-markdown
 
@@ -102,7 +101,7 @@ export class Demo2Component {
 }
 ```
 
-You can find example at [Github]() and [Demo]().
+You can find example at [Github](https://github.com/HiromasaNojima/ngx-toc/tree/main/src/app/demo2) and [Demo](https://sleepy-knuth-cedceb.netlify.app/demo2).
 
 ## Parameters
 
