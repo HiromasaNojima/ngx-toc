@@ -1,6 +1,17 @@
 {
   "name": "ngx-toc",
   "version": "0.0.1",
+  "description": "Angular library that makes toc from heading elements.",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "ngx",
+    "toc",
+    "table of contents"
+  ],
+  "author": {
+    "name": "Hiromasa Nojima"
+  },
   "peerDependencies": {
     "@angular/common": "^13.2.3",
     "@angular/core": "^13.2.3"
