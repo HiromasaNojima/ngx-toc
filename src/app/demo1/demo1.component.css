@@ -1,6 +1,17 @@
+h1 {
+  margin: 300px;
+}
+
+h2 {
+  margin: 300px;
+}
+
+h3 {
+  margin: 300px;
+}
+
 #toc {
   margin-top: 20px;
-  right: 0;
   position: fixed;
 }
 
