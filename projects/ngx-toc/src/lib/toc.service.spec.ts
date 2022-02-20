@@ -1,15 +1,25 @@
-import { Renderer2, Type } from '@angular/core';
+import { Component, Renderer2, Type } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TocComponent } from './toc.component';
 
 import { TocService } from './toc.service';
+
+@Component({
+  template: `
+      <div id="toc-target">
+        <h1 id="h1-1">h1-1</h1>
+      </div>
+  `
+})
+class TestComponent {
+  constructor(private renderer: Renderer2) {}
+}
 
 describe('TocService', () => {
   
   let service: TocService;
   let renderer: Renderer2;
-  let fixture: ComponentFixture<TocComponent>;
+  let fixture: ComponentFixture<TestComponent>;
   
   beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
@@ -20,7 +30,7 @@ describe('TocService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    fixture = TestBed.createComponent(TocComponent);
+    fixture = TestBed.createComponent(TestComponent);
     renderer = fixture.componentRef.injector.get<Renderer2>(Renderer2 as Type<Renderer2>);
     service = TestBed.inject(TocService);
     spyOn(renderer, 'createElement').and.callThrough();
