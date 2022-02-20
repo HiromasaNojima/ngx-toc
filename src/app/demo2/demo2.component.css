@@ -1,0 +1,16 @@
+h1 {
+  margin: 300px;
+}
+
+h2 {
+  margin: 300px;
+}
+
+h3 {
+  margin: 300px;
+}
+
+ngx-toc {
+  margin-top: 300px;
+  position: fixed;
+}
