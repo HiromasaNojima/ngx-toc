@@ -112,9 +112,9 @@ TocService.createToc(targetId: string, targetHeadings: string[], path: string, r
 
 | parameter | type | description | example |
 | :- | :- | :- | :- |
-| targetId | string | id of target element to create toc | `'toc-target'`<br>if you'd like to create toc of following element.<br>`<div id="toc-target"><h1>bar</h1></div>` |
+| targetId | string | id of target element to create toc | `'toc-target'`<br>if you'd like to create toc of following element.<br>`<div id="toc-target"><h1 id="bar">bar</h1></div>` |
 | targetHeadings | string[] | heading elements to crate toc from | `['h1', 'h2', 'h3']`<br>then create toc from h1, h2, h3 tags. |
-| path | string | path of href value | `'/foo'`<br>then href is `href="/foo#id"`. |
+| path | string | path of href value | `'/foo'`<br>then href of toc is `href="/foo#id"`. |
 | renderer | Renderer2 | renderer to render toc | - |
 
 # License
