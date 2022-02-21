@@ -12,7 +12,7 @@ npm install ngx-toc --save
 
 Then add imports to NgModule.
 
-```
+```javascript
 import { NgxTocModule } from 'ngx-toc';
 
 @NgModule({
@@ -29,7 +29,7 @@ This library provide service to create toc.
 
 ## Use with static html
 
-```
+```javascript
 import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TocService } from 'ngx-toc';
@@ -64,19 +64,20 @@ You can find example at [Github](https://github.com/HiromasaNojima/ngx-toc/tree/
 
 ## Use with ngx-markdown
 
-[ngx-markdown](https://github.com/jfcere/ngx-markdown) is library to use markdown in Angular.<br>
+[ngx-markdown](https://github.com/jfcere/ngx-markdown) is the library to use markdown in Angular.<br>
 `ngx-toc` can collaborate with this.
 
 - html
 
-```
+```html
 <div #toc id="toc"></div>
 <markdown id="toc-target" [src]="path/to/file.md" (ready)="onReady()"></markdown>
+<!-- <markdown></markdown> is ngx-markdown component. -->
 ```
 
 - component
 
-```
+```javascript
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TocService } from 'ngx-toc';
@@ -105,17 +106,17 @@ You can find example at [Github](https://github.com/HiromasaNojima/ngx-toc/tree/
 
 ## Parameters
 
-```
-tocServie.createToc(targetId: string, targetHeadings: string[], path: string, renderer: Renderer2)
+```javascript
+TocService.createToc(targetId: string, targetHeadings: string[], path: string, renderer: Renderer2): HTMLElement
 ```
 
-| parameter | description | example |
-| :- | :- | :- |
-| targetId | id of target element to create toc | `'toc-target'`<br>if you'd like to create toc of following element.<br>`<div id="toc-target"><h1>bar</h1></div>` |
-| targetHeadings | heading elements to crate toc from | `['h1', 'h2', 'h3']`<br>then create toc from h1, h2, h3 tags. |
-| path | path of href value | `'/foo'`<br>then href is `href="/foo#id"`. |
-| renderer | renderer to render toc | - |
+| parameter | type | description | example |
+| :- | :- | :- | :- |
+| targetId | string | id of target element to create toc | `'toc-target'`<br>if you'd like to create toc of following element.<br>`<div id="toc-target"><h1>bar</h1></div>` |
+| targetHeadings | string[] | heading elements to crate toc from | `['h1', 'h2', 'h3']`<br>then create toc from h1, h2, h3 tags. |
+| path | string | path of href value | `'/foo'`<br>then href is `href="/foo#id"`. |
+| renderer | Renderer2 | renderer to render toc | - |
 
 # License
 
-Licensed under [MIT](https://opensource.org/licenses/MIT).
+Licensed under [MIT](https://opensource.org/licenses/MIT).  
