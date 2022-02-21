@@ -25,7 +25,7 @@ import { NgxTocModule } from 'ngx-toc';
 
 # Usage
 
-This library provide service to create toc.
+This library provides service to create toc.
 
 ## Use with static html
 
