@@ -1,5 +1,5 @@
 import {  Injectable, Renderer2 } from '@angular/core';
-import { TocCompositeFactory } from './toc-composite';
+import { TocCompositeFactory } from "./toc-composite-factory";
 
 @Injectable({
   providedIn: 'root'
