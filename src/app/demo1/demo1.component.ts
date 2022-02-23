@@ -11,6 +11,7 @@ import { TocService } from 'ngx-toc';
     <h2 id="h2-1">h2-1</h2>
     <h2 id="h2-2">h2-2</h2>
     <h3 id="h3-1">h3-1</h3>
+    <h2 id="h2-3">h2-3</h2>
     <h1 id="h1-3">h1-3</h1>
   </div>`,
   styleUrls: ['./demo1.component.css']
