@@ -24,7 +24,7 @@ export class TocCompositeFactory {
 
   private createTocComposite(queue: Queue<HTMLElement>, preItem: HTMLElement, node: Toc): Toc {
     if (queue.empty()) {
-      return node;
+      return this.getRootNode(node);
     }
 
     let item = queue.pop();
@@ -49,6 +49,13 @@ export class TocCompositeFactory {
 
   private shouldAddChildNode(item: HTMLElement, preItem: HTMLElement): boolean {
     return (preItem.tagName < item.tagName);
+  }
+
+  private getRootNode(node:Toc): Toc {
+    while(!node.isRootNode()) {
+      node = node.getParent();
+    }
+    return node;
   }
 
   private searchNodeToAdd(node: Toc, item: HTMLElement): Toc {

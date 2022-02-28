@@ -56,6 +56,10 @@ describe('Li', () => {
   it('should throw error if getLastChild() is called.', () => {
     expect(() => li.getLastChild()).toThrowError(errorNotSupportedOperation);
   });
+
+  it('should throw error if isRootNode() is called.', () => {
+    expect(() => li.isRootNode()).toThrowError(errorNotSupportedOperation);
+  });
 });
 
 const toc = 
@@ -152,6 +156,18 @@ describe('Ul', () => {
     expect(grandchild.getParent()).toEqual(child);
   });
 
+  it('should be true if root node calls isRootNode()', () => {
+    let root = new Ul('H1', null);
+    expect(root.isRootNode()).toEqual(true);
+  });
+
+  it('should be false if child node calls isRootNode()', () => {
+    let root = new Ul('H1', null);
+    let child = new Ul('H2', root);
+    root.add(child);
+    expect(child.isRootNode()).toEqual(false);
+  });
+
 });
 
 describe('a', () => {
@@ -195,6 +211,10 @@ describe('a', () => {
 
   it('should throw error if getLastChild() is called.', () => {
     expect(() => a.getLastChild()).toThrowError(errorNotSupportedOperation);
+  });
+
+  it('should throw error if isRootNode() is called.', () => {
+    expect(() => a.isRootNode()).toThrowError(errorNotSupportedOperation);
   });
   
 });

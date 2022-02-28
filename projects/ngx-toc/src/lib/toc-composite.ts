@@ -6,6 +6,7 @@ export interface Toc {
   getParent(): Toc;
   getDepth(): string;
   getLastChild(): Toc;
+  isRootNode(): boolean;
 }
 
 export const errorRootCallsGetParent = '[ngx-toc] This is root node but is called getParent().'
@@ -48,6 +49,10 @@ export class Ul implements Toc {
   getLastChild(): Toc {
     return this.items[this.items.length - 1];
   }
+
+  isRootNode(): boolean {
+    return (this.parent === null);
+  }
   
 }
 
@@ -72,6 +77,7 @@ export class Li implements Toc {
   getParent(): Ul { throw new Error(errorNotSupportedOperation); }
   getDepth(): string { throw new Error(errorNotSupportedOperation); }
   getLastChild(): Toc { throw new Error(errorNotSupportedOperation); }
+  isRootNode(): boolean { throw new Error(errorNotSupportedOperation); }
 }
 
 export class A implements Toc {
@@ -97,4 +103,5 @@ export class A implements Toc {
   getParent(): Ul { throw new Error(errorNotSupportedOperation); }
   getDepth(): string { throw new Error(errorNotSupportedOperation); }
   getLastChild(): Toc { throw new Error(errorNotSupportedOperation); }
+  isRootNode(): boolean { throw new Error(errorNotSupportedOperation); }
 }
